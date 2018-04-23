@@ -3,6 +3,7 @@ var sequelize = require('../db.js');
 var User = sequelize.import('../models/hmuser.js');
 var Log = sequelize.import('../models/hmlog.js');
 
+
 router.post('/', function(req, res){
 	var category = req.body.log.category
 	var event = req.body.log.event;
@@ -21,7 +22,8 @@ router.post('/', function(req, res){
 		owner : owner, 
 		location: location,
 		purpose : purpose,
-		createdby: user.id
+		createdby: user.id,
+		updatedby: user.id
 
 
 	}).then(
@@ -31,6 +33,7 @@ router.post('/', function(req, res){
 				message: "You created a HelpMinder!!"});
 		},
 		function createError(err){
+			// console.log(err.message);
 			res.send(500, err.message)
 		}
 	);
@@ -38,10 +41,11 @@ router.post('/', function(req, res){
 
 router.get('/', function(req, res){
 	var userid = req.user.id;
-
-	Log.findAll({ where: {owner: userid}}).then(
+	// Log.findAll({ where: {updatedby: userid}}).then(
+	Log.findAll().then(
 			function findAllSuccess(data){
 				res.json(data)
+				console.log(data)
 			},
 			function findAllError(err){
 				res.send(500, err.message)

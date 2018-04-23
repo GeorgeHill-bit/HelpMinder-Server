@@ -1,7 +1,7 @@
 {
-  "name": "df-server",
+  "name": "hm-server",
   "version": "1.0.0",
-  "description": "server for Don't Forget! project",
+  "description": "server for Help Minder project",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

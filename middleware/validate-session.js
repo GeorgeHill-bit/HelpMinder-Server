@@ -14,11 +14,11 @@ module.exports = function(req, res, next){
 						next()
 					},
 					function(){
-						res.status(401).send({error: "User is not authorized."})
+						res.status(401).send({error: "User is not authorized (1)."})
 					}
 				);
 			} else {
-				res.status(401).send({error: "User is not authorized."})
+				res.status(401).send({error: "User is not authorized. (2)"})
 			}
 		})
 	} else {

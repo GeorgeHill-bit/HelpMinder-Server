@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes){
 		owner: DataTypes.STRING,
 		location: DataTypes.STRING,
 		purpose: DataTypes.STRING,
-		createdby: DataTypes.STRING,
-		updatedby: DataTypes.STRING
+		createdby: DataTypes.INTEGER,
+		updatedby: DataTypes.INTEGER
 	})
 }
