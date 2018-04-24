@@ -5,7 +5,6 @@ var sequelize = require('../db.js');
 var User = sequelize.import('../models/hmuser.js');
 
 router.post('/', function(req, res){
-	console.log(req.body)
 	User.findOne({where:{username: req.body.user.username}}).then(
 		function(user){
 			if(user){
@@ -28,8 +27,7 @@ router.post('/', function(req, res){
 		function(err){
 			res.json(err);
 		}
-
-		)
+	)
 })
 
 module.exports = router;
